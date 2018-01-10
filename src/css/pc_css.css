@@ -132,6 +132,7 @@
 .leftContainer{
     width:400px;
     float: left;
+    margin-right: 10px;
 }
 
 /*image block******START*****/
