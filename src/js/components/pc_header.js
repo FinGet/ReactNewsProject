@@ -100,7 +100,7 @@ class PCHeader extends React.Component{
           <Button type="ghost" htmlType="button" onClick={this.logout.bind(this)}>退出</Button>
         </Menu.Item>
       : <Menu.Item key="register" class="register">
-        <Icon type="appstore"/>注册/登录
+        <Icon type="login" />注册/登录
       </Menu.Item>;
     return (
       <header>
