@@ -6,6 +6,7 @@ import PCIndex from './components/pc_index';
 import MediaQuery from 'react-responsive';
 import MobileIndex from './components/mobile_index';
 import PCNewsDetails from './components/pc_news_details';
+import MobileNewsDetails from './components/mobile_news_details';
 
 export default class Root extends React.Component{
   render(){
@@ -20,7 +21,12 @@ export default class Root extends React.Component{
         </HashRouter>
       </MediaQuery>
       <MediaQuery query="(max-device-width:1224px)">
-        <MobileIndex/>
+        <HashRouter>
+          <Switch>
+            <Route path="/" exact  component={MobileIndex}></Route>
+            <Route path="/details/:uniquekey" exact  component={MobileNewsDetails}></Route>
+          </Switch>
+        </HashRouter>
       </MediaQuery>
     </div>
     );
