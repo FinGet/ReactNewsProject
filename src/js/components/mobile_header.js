@@ -5,7 +5,7 @@ const FormItem = Form.Item;
 // const SubMenu = Menu.SubMenu;
 const TabPane = Tabs.TabPane;
 // const MenuItemGroup = Menu.ItemGroup;
-import {Router, Route, Link, browserHistory, BrowserRouter} from 'react-router-dom';
+import {Router, Route, Link, HashRouter, BrowserRouter} from 'react-router-dom';
 
 class MobileHeader extends React.Component{
   constructor(){
@@ -68,19 +68,21 @@ class MobileHeader extends React.Component{
   render() {
     let {getFieldProps} = this.props.form;
     const userShow = this.state.hasLogined ?
-      <BrowserRouter>
-        <Link to="/">
-          <Icon type="logout" />
+      <HashRouter>
+        <Link to="/usercenter">
+          <Icon type="user" />
         </Link>
-      </BrowserRouter>
+      </HashRouter>
       :
       <Icon type="setting" onClick={this.login.bind(this)}/>
     return(
       <div id="mobileheader">
         <header>
-          <img src="./src/images/logo.png" alt="logo"/>
-          <span>ReactNews</span>
-          {userShow}
+          <a href="/">
+            <img src="./src/images/logo.png" alt="logo"/>
+          </a>
+            <span>ReactNews</span>
+            {userShow}
         </header>
         <Modal title="用户中心" wrapClassName="vertical-center-modal" visible={this.state.modalVisible} onCancel= {()=>this.setModalVisible(false)} onOk={() => this.setModalVisible(false)} okText = "关闭">
           <Tabs type="card" onChange={this.callback.bind(this)}>
