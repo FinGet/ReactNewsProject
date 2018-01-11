@@ -1,6 +1,6 @@
 import React from 'react';
 import {Card} from 'antd';
-import {Router, Route, Link, browserHistory, BrowserRouter} from 'react-router-dom';
+import {Route,BrowserRouter,Switch,Link,HashRouter} from 'react-router-dom';
 
 export default class PCNewsBlock extends React.Component{
   constructor(){
@@ -27,11 +27,11 @@ export default class PCNewsBlock extends React.Component{
     const newsList = news.length
       ? news.map((newsItem, index) => (
         <li key={index}>
-          <BrowserRouter>
+          <HashRouter>
             <Link to={`details/${newsItem.uniquekey}`} target="_blank">
               {newsItem.title}
             </Link>
-          </BrowserRouter>
+          </HashRouter>
         </li>
       ))
       : '没有加载到任何新闻';
